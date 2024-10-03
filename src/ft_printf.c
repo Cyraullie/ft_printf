@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 13:03:59 by cgoldens          #+#    #+#             */
-/*   Updated: 2024/10/03 14:43:15 by cgoldens         ###   ########.fr       */
+/*   Updated: 2024/10/03 15:08:36 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,10 @@ int	ft_formats(va_list args, const char format)
 		l += ft_printchar(va_arg(args, int));
 	else if (format == 's')
 		l += ft_printstr(va_arg(args, char *));
+	else if (format == '%')
+		l += ft_printpercent();
+	else if (format == 'd' || format == 'i')
+		l += ft_printnbr(va_arg(args, int));	
 	return (l);
 }
 
@@ -56,5 +60,9 @@ int	ft_printf(const char *s, ...)
 
 int	main(void)
 {
+	ft_printf("%c", 't');
 	ft_printf("%s", "test");
+	ft_printf("%%");
+	ft_printf("%d", 42);
+	ft_printf("%i", 42);
 }

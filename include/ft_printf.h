@@ -6,7 +6,7 @@
 /*   By: cgoldens <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 13:29:32 by cgoldens          #+#    #+#             */
-/*   Updated: 2024/10/03 14:29:38 by cgoldens         ###   ########.fr       */
+/*   Updated: 2024/10/03 15:05:35 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,6 @@ int		ft_printchar(int c);
 
 int		ft_putstr(char *s);
 int		ft_printstr(char *s);
+int		ft_printnbr(int n);
+int		ft_printpercent(void);
 #endif

@@ -6,7 +6,7 @@
 /*   By: cgoldens <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 14:25:28 by cgoldens          #+#    #+#             */
-/*   Updated: 2024/10/03 14:32:45 by cgoldens         ###   ########.fr       */
+/*   Updated: 2024/10/03 15:04:58 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,22 @@ int	ft_printstr(char *s)
 	if (s == NULL)
 		return (ft_putstr("(null)"));
 	return (ft_putstr(s));
+}
+
+int	ft_printnbr(int n)
+{
+	int		len;
+	char	*num;
+
+	len = 0;
+	num = ft_itoa(n);
+	len = ft_printstr(num);
+	free(num);
+	return (len);
+}
+
+int	ft_printpercent(void)
+{
+	write(1, "%", 1);
+	return (1);
 }
