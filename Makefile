@@ -6,7 +6,7 @@
 #    By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/01 11:31:20 by cgoldens          #+#    #+#              #
-#    Updated: 2024/10/03 13:19:44 by cgoldens         ###   ########.fr        #
+#    Updated: 2024/10/03 14:20:30 by cgoldens         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ INCLUDES	=	include/
 SRC_DIR 	=	src/
 SRC = $(wildcard $(SRC_DIR)/ft_*.c)
 OBJ = $(SRC:.c=.o)
-NAME = libft.a
+NAME = libftprintf.a
 # Règles
 all: $(NAME)
 
