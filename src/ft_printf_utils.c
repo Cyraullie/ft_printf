@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cgoldens <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/03 13:29:32 by cgoldens          #+#    #+#             */
-/*   Updated: 2024/10/03 14:29:38 by cgoldens         ###   ########.fr       */
+/*   Created: 2024/10/03 14:25:28 by cgoldens          #+#    #+#             */
+/*   Updated: 2024/10/03 14:32:45 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
+#include "libft.h"
 
-# include <stdarg.h>
-# include <unistd.h>
+int	ft_putstr(char *s)
+{
+	int	i;
 
-int		ft_printf(const char *format, ...);
-int		ft_formats(va_list args, const char format);
-int		ft_printchar(int c);
+	i = 0;
+	while (s[i])
+		i += ft_printchar(s[i]);
+	return (i);
+}
 
-int		ft_putstr(char *s);
-int		ft_printstr(char *s);
-#endif
+int	ft_printstr(char *s)
+{
+	if (s == NULL)
+		return (ft_putstr("(null)"));
+	return (ft_putstr(s));
+}
