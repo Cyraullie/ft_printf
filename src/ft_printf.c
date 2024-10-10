@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 13:03:59 by cgoldens          #+#    #+#             */
-/*   Updated: 2024/10/03 15:08:36 by cgoldens         ###   ########.fr       */
+/*   Updated: 2024/10/10 14:22:23 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	ft_formats(va_list args, const char format)
 	else if (format == '%')
 		l += ft_printpercent();
 	else if (format == 'd' || format == 'i')
-		l += ft_printnbr(va_arg(args, int));	
+		l += ft_printnbr(va_arg(args, int));
 	return (l);
 }
 
