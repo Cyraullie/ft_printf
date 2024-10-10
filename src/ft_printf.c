@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 13:03:59 by cgoldens          #+#    #+#             */
-/*   Updated: 2024/10/10 14:22:23 by cgoldens         ###   ########.fr       */
+/*   Updated: 2024/10/10 16:17:52 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,18 @@ int	ft_formats(va_list args, const char format)
 	int	l;
 
 	l = 0;
-	if (format == 'c')
-		l += ft_printchar(va_arg(args, int));
+	if (format == '%')
+		l += ft_printchar('%');
 	else if (format == 's')
 		l += ft_printstr(va_arg(args, char *));
-	else if (format == '%')
-		l += ft_printpercent();
+	else if (format == 'c')
+		l += ft_printchar(va_arg(args, int));
 	else if (format == 'd' || format == 'i')
 		l += ft_printnbr(va_arg(args, int));
+	else if (format == 'x' || format == 'X')
+		l += ft_printhex(va_arg(args, unsigned int), format);
+	else if (format == 'p')
+		l += ft_printptr(va_arg(args, unsigned long long));
 	return (l);
 }
 
@@ -57,7 +61,7 @@ int	ft_printf(const char *s, ...)
 	va_end(args);
 	return (l);
 }	
-
+/*
 int	main(void)
 {
 	ft_printf("%c", 't');
@@ -65,4 +69,7 @@ int	main(void)
 	ft_printf("%%");
 	ft_printf("%d", 42);
 	ft_printf("%i", 42);
-}
+	ft_printf("%x", 422);
+	ft_printf("%X", 422);
+	ft_printf("%X", 0);
+}*/

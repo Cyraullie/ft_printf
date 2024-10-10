@@ -6,7 +6,7 @@
 /*   By: cgoldens <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 14:25:28 by cgoldens          #+#    #+#             */
-/*   Updated: 2024/10/10 13:56:49 by cgoldens         ###   ########.fr       */
+/*   Updated: 2024/10/10 16:21:07 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,32 @@ int	ft_printnbr(int n)
 	return (len);
 }
 
-int	ft_printpercent(void)
+void	ft_puthex(unsigned	int n, const	char f)
 {
-	write(1, "%", 1);
-	return (1);
+	if (n >= 16)
+	{
+		ft_puthex(n / 16, f);
+		ft_puthex(n % 16, f);
+	}
+	else
+	{
+		if (n <= 9)
+			ft_printchar(n + '0');
+		else
+		{
+			if (f == 'x')
+				ft_printchar(n - 10 + 'a');
+			if (f == 'X')
+				ft_printchar(n - 10 + 'A');
+		}
+	}
+}
+
+int	ft_printhex(unsigned	int n, const	char f)
+{
+	if (!n)
+		return (ft_printchar('0'));
+	else
+		ft_puthex(n, f);
+	return (ft_nbrlen(n));
 }

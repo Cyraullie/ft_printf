@@ -6,7 +6,7 @@
 #    By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/01 11:31:20 by cgoldens          #+#    #+#              #
-#    Updated: 2024/10/10 14:33:01 by cgoldens         ###   ########.fr        #
+#    Updated: 2024/10/10 16:17:14 by cgoldens         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror -I
 INCLUDES	=	include/
 LIBFT		=	libft
-SRC = src/ft_printf.c src/ft_printf_utils1.c
+SRC = src/ft_printf.c src/ft_printf_utils1.c src/ft_utils.c src/ft_printf_utils2.c
 OBJ = $(SRC:.c=.o)
 NAME = libftprintf.a
 # Règles
