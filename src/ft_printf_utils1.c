@@ -6,7 +6,7 @@
 /*   By: cgoldens <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 14:25:28 by cgoldens          #+#    #+#             */
-/*   Updated: 2024/10/10 16:21:07 by cgoldens         ###   ########.fr       */
+/*   Updated: 2024/10/11 14:47:22 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,5 @@ int	ft_printhex(unsigned	int n, const	char f)
 		return (ft_printchar('0'));
 	else
 		ft_puthex(n, f);
-	return (ft_nbrlen(n));
+	return (ft_nbrlen_base16(n));
 }

@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cgoldens <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 15:36:25 by cgoldens          #+#    #+#             */
-/*   Updated: 2024/10/10 15:38:59 by cgoldens         ###   ########.fr       */
+/*   Updated: 2024/10/11 15:17:09 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft.h"
 
-int	ft_nbrlen(unsigned	int n)
+int	ft_nbrlen_base16(unsigned	long long n)
 {
 	int	l;
 
@@ -24,4 +24,17 @@ int	ft_nbrlen(unsigned	int n)
 		n = n / 16;
 	}
 	return (l);
+}
+
+int	ft_nbrlen_base10(unsigned	int num)
+{
+	int	len;
+
+	len = 0;
+	while (num != 0)
+	{
+		len++;
+		num = num / 10;
+	}
+	return (len);
 }

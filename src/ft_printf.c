@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 13:03:59 by cgoldens          #+#    #+#             */
-/*   Updated: 2024/10/10 16:17:52 by cgoldens         ###   ########.fr       */
+/*   Updated: 2024/10/11 15:58:45 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ int	ft_formats(va_list args, const char format)
 		l += ft_printhex(va_arg(args, unsigned int), format);
 	else if (format == 'p')
 		l += ft_printptr(va_arg(args, unsigned long long));
+	else if (format == 'u')
+		l += ft_printunsigned(va_arg(args, unsigned int));
 	return (l);
 }
 
@@ -60,16 +62,31 @@ int	ft_printf(const char *s, ...)
 	}
 	va_end(args);
 	return (l);
-}	
-/*
+}
+
 int	main(void)
 {
-	ft_printf("%c", 't');
-	ft_printf("%s", "test");
-	ft_printf("%%");
-	ft_printf("%d", 42);
-	ft_printf("%i", 42);
-	ft_printf("%x", 422);
-	ft_printf("%X", 422);
-	ft_printf("%X", 0);
-}*/
+	//ft_printf("%c", 't');
+//	printf("\n");
+//	ft_printf("%s", "test");
+//	printf("\n");
+//	ft_printf("%%");
+	//ft_printf("\001\002\007\v\010\f\r\n");
+	printf("\001\002\007\v\010\f\r\n");
+//	printf("\n");
+//	ft_printf("%i", 142);
+//	printf("\n");
+//	ft_printf("%x", 422);
+//	printf("\n");
+//	ft_printf("%X", 422);
+//	printf("\n");
+//	ft_printf("%X", 0);
+//	printf("\n");
+//	ft_printf("%p", "");
+//	printf("\n");
+//	ft_printf("%u", 5654651);
+//	printf("\n");
+//	ft_printf("__");
+//	ft_printf("\n");
+//	ft_printf("__test");
+}
