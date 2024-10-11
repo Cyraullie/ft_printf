@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 13:03:59 by cgoldens          #+#    #+#             */
-/*   Updated: 2024/10/11 16:22:48 by cgoldens         ###   ########.fr       */
+/*   Updated: 2024/10/11 16:29:32 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int	ft_printf(const char *s, ...)
 	va_end(args);
 	return (l);
 }
-/*
+
 int	main(void)
 {
 	//ft_printf("%c", 't');
@@ -72,7 +72,8 @@ int	main(void)
 //	printf("\n");
 //	ft_printf("%%");
 	//ft_printf("\001\002\007\v\010\f\r\n");
-	printf("\001\002\007\v\010\f\r\n");
+	printf("%d", printf("\001\002\007\v\010\f\r\n"));
+	printf("%d", ft_printf("\001\002\007\v\010\f\r\n"));
 //	printf("\n");
 //	ft_printf("%i", 142);
 //	printf("\n");
@@ -90,4 +91,3 @@ int	main(void)
 //	ft_printf("\n");
 //	ft_printf("__test");
 }
-*/
