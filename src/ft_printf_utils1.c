@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_utils1.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cgoldens <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 14:25:28 by cgoldens          #+#    #+#             */
-/*   Updated: 2024/10/11 14:47:22 by cgoldens         ###   ########.fr       */
+/*   Updated: 2024/10/14 10:47:17 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft.h"
 
-int	ft_putstr(char *s)
+static int	ft_putstr(char *s)
 {
 	int	i;
 
@@ -42,7 +42,7 @@ int	ft_printnbr(int n)
 	return (len);
 }
 
-void	ft_puthex(unsigned	int n, const	char f)
+static void	ft_puthex(unsigned	int n, const	char f)
 {
 	if (n >= 16)
 	{

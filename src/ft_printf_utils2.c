@@ -6,14 +6,14 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 16:08:30 by cgoldens          #+#    #+#             */
-/*   Updated: 2024/10/11 15:15:20 by cgoldens         ###   ########.fr       */
+/*   Updated: 2024/10/14 10:44:20 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "ft_printf.h"
 
-void	ft_putptr(uintptr_t num)
+static void	ft_putptr(uintptr_t num)
 {
 	if (num >= 16)
 	{
@@ -45,7 +45,7 @@ int	ft_printptr(unsigned long long ptr)
 	return (print_length);
 }
 
-char	*ft_uitoa(unsigned	int n)
+static char	*ft_uitoa(unsigned	int n)
 {
 	char	*num;
 	int		l;
