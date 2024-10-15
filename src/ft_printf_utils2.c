@@ -6,41 +6,58 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 16:08:30 by cgoldens          #+#    #+#             */
-/*   Updated: 2024/10/14 10:44:20 by cgoldens         ###   ########.fr       */
+/*   Updated: 2024/10/15 13:21:14 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "ft_printf.h"
 
-static void	ft_putptr(uintptr_t num)
+static int	ft_putptr(uintptr_t num)
 {
+	int	res;
+
+	res = 0;
 	if (num >= 16)
 	{
-		ft_putptr(num / 16);
-		ft_putptr(num % 16);
+		res = ft_putptr(num / 16);
+		res += ft_putptr(num % 16);
 	}
 	else
 	{
 		if (num <= 9)
-			ft_putchar_fd((num + '0'), 1);
+			res = ft_printchar((num + '0'));
 		else
-			ft_putchar_fd((num - 10 + 'a'), 1);
+			res = ft_printchar((num - 10 + 'a'));
 	}
+	if (res == -1)
+		return (-1);
+	return (res);
 }
 
 int	ft_printptr(unsigned long long ptr)
 {
 	int	print_length;
+	int	res;
 
 	print_length = 0;
-	print_length += write(1, "0x", 2);
+	res = write(1, "0x", 2);
+	if (res == -1)
+		return (-1);
+	print_length += res;
 	if (ptr == 0)
-		print_length += write(1, "0", 1);
+	{
+		res = ft_printchar('0');
+		if (res == -1)
+			return (-1);
+		print_length += res;
+	}
 	else
 	{
-		print_length += ft_nbrlen_base16(ptr);
-		ft_putptr(ptr);
+		res = ft_putptr(ptr);
+		if (res == -1)
+			return (-1);
+		print_length += res;
 	}
 	return (print_length);
 }
@@ -71,12 +88,14 @@ int	ft_printunsigned(unsigned	int n)
 
 	l = 0;
 	if (n == 0)
-		l += ft_printchar('0');
-	else
+		return (ft_printchar('0'));
+	num = ft_uitoa(n);
+	if (!num)
 	{
-		num = ft_uitoa(n);
-		l += ft_printstr(num);
 		free(num);
+		return (-1);
 	}
+	l = ft_printstr(num);
+	free(num);
 	return (l);
 }

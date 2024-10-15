@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 13:03:59 by cgoldens          #+#    #+#             */
-/*   Updated: 2024/10/14 10:41:24 by cgoldens         ###   ########.fr       */
+/*   Updated: 2024/10/15 13:04:01 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,35 @@
 
 int	ft_printchar(int c)
 {
-	write(1, &c, 1);
+	if (write(1, &c, 1) == -1)
+		return (-1);
 	return (1);
 }
 
 int	ft_formats(va_list args, const char format)
 {
 	int	l;
+	int	res;
 
 	l = 0;
+	res = 0;
 	if (format == '%')
-		l += ft_printchar('%');
+		res = ft_printchar('%');
 	else if (format == 's')
-		l += ft_printstr(va_arg(args, char *));
+		res = ft_printstr(va_arg(args, char *));
 	else if (format == 'c')
-		l += ft_printchar(va_arg(args, int));
+		res = ft_printchar(va_arg(args, int));
 	else if (format == 'd' || format == 'i')
-		l += ft_printnbr(va_arg(args, int));
+		res = ft_printnbr(va_arg(args, int));
 	else if (format == 'x' || format == 'X')
-		l += ft_printhex(va_arg(args, unsigned int), format);
+		res = ft_printhex(va_arg(args, unsigned int), format);
 	else if (format == 'p')
-		l += ft_printptr(va_arg(args, unsigned long long));
+		res = ft_printptr(va_arg(args, unsigned long long));
 	else if (format == 'u')
-		l += ft_printunsigned(va_arg(args, unsigned int));
+		res = ft_printunsigned(va_arg(args, unsigned int));
+	if (res == -1)
+		return (res);
+	l += res;
 	return (l);
 }
 
@@ -45,19 +51,24 @@ int	ft_printf(const char *s, ...)
 	int		i;
 	va_list	args;
 	int		l;
+	int		res;
 
 	i = 0;
 	l = 0;
+	res = 0;
 	va_start(args, s);
 	while (s[i])
 	{
 		if (s[i] == '%')
 		{
-			l += ft_formats(args, s[i + 1]);
+			res = ft_formats(args, s[i + 1]);
 			i++;
 		}
 		else
-			l += ft_printchar(s[i]);
+			res = ft_printchar(s[i]);
+		if (res == -1)
+			return (res);
+		l += res;
 		i++;
 	}
 	va_end(args);
@@ -72,7 +83,9 @@ int	main(void)
 //	printf("\n");
 //	ft_printf("%%");
 	//ft_printf("\001\002\007\v\010\f\r\n");
-	printf("%d", printf("%-1d", 42));
+	//printf("%d", ft_printstr((char *)NULL));
+	//ft_printstr((char *)NULL);
+	//ft_printf("%s", (char *)NULL);
 	//printf("%d", ft_printf("\001\002\007\v\010\f\r\n"));
 //	printf("\n");
 //	ft_printf("%i", 142);
