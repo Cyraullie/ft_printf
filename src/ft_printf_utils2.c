@@ -6,12 +6,25 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 16:08:30 by cgoldens          #+#    #+#             */
-/*   Updated: 2024/10/15 13:21:14 by cgoldens         ###   ########.fr       */
+/*   Updated: 2024/10/15 14:54:16 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "ft_printf.h"
+
+static int	ft_nbrlen_base10(unsigned	int num)
+{
+	int	len;
+
+	len = 0;
+	while (num != 0)
+	{
+		len++;
+		num = num / 10;
+	}
+	return (len);
+}
 
 static int	ft_putptr(uintptr_t num)
 {
